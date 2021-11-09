@@ -1,0 +1,54 @@
+CREATE TABLE "Sat" (
+    idsata int,
+    idkorisnika int,
+    brend text,
+    cena double,
+    materijal text,
+    PRIMARY KEY ("idsata")
+)
+CREATE TABLE "Korisnik" (
+    idkorisnika int,
+    ime text,
+    prezime text,
+    lokacija text,
+    PRIMARY KEY ("idkorisnika")
+)
+CREATE TABLE "Korisnik_Sat" (
+    idkorisnika int,
+    idsata int,
+    PRIMARY KEY ("idkorisnika", "idsata")
+)
+CREATE TABLE "Sat_Brend"
+(
+    brend text, 
+    idsata int,
+    PRIMARY KEY ("brend", "idsata")
+)
+CREATE TABLE "Sat_Cena" (
+    cena double,
+    idsata int,
+    PRIMARY KEY ("cena","idsata")
+)
+CREATE TABLE "ListaOmiljenih" (
+    korisnikid int, 
+    satid int, 
+    PRIMARY KEY ("korisnikid", "satid")
+)
+CREATE TABLE "Narudzbina" (
+    idnarudzbine int, 
+    idkorisnika int, 
+    idsata int,
+    PRIMARY KEY ("idnarudzbine")
+)
+CREATE TABLE "Komentar" (
+    idkomentara int, 
+    tekstkomentara text,
+    PRIMARY KEY ("idkomentara")
+)
+CREATE TABLE "KorisnikKomentar" (
+    idprodavca int, 
+    idkupca int,
+    idkomentara int,
+    komentar text,
+    PRIMARY KEY ("idprodavca", "idkomentara")
+)
